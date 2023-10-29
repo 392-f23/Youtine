@@ -1,0 +1,41 @@
+/* .routine{
+    background-color: rgb(249, 239, 226);   
+    border-radius: 25px;
+    outline: 1px solid black;
+} */
+div.routine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency to let the main background color show through */
+    color: rgb(21,55,56);
+    padding: 15px 25px;
+    margin: 10px 0;
+    border-radius: 7px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
+    max-width: 400px;
+    margin: 15px auto;
+}
+
+.routine > div {
+    margin-bottom: 10px;
+}
+
+.routine h5 {
+    font-weight: 300;
+    font-size: 1.2em;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Styling for the routine title and daily goal */
+.routine > div:first-child {
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+.routine > div:nth-child(2) {
+    font-weight: 300;
+    font-size: 1.2em;
+}
