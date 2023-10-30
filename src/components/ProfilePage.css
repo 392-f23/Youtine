@@ -1,0 +1,26 @@
+.container1{
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+
+.rounded-button {
+    display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(to bottom, rgb(159, 123, 69), rgb(211, 168, 104));
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 2rem;
+  }
+  
+  
+  .rounded-button:hover {
+    background-color: rgb(149, 117, 69);
+  }
+  
