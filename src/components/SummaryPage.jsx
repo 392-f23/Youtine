@@ -10,10 +10,10 @@ const SummaryPage = ({routines}) => {
 
     return (
         <div className= "calendar-page">
-            <h2 className="main-title">Your Routines</h2>
+            <h2 className="main-title">Summary</h2>
             <Calendar onChange={onChange} value={value} />
             <OneDaySummary routines={routines} date = {value}/>
-            <PieChart />
+            {/* <PieChart /> */}
         </div>
     );
     
