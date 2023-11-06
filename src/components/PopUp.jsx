@@ -19,11 +19,8 @@ const InputField = ({ name, text, state, change }) => (
 );
 
 const ButtonBar = ({ message, disabled }) => {
-    const navigate = useNavigate();
     return (
         <div className="d-flex">
-            <button type="button" className="btn btn-outline-dark me-2" onClick={() => navigate(-1)}>Cancel</button>
-            {/* Submit button */}
             <button type="submit" className="btn btn-primary me-auto" disabled={disabled}>Submit</button>
             <span className="p-2">{message}</span>
         </div>
@@ -35,18 +32,9 @@ const PopUp = ({ routine }) => {
     const [stateGoal, changeGoal] = useFormData(validateRoutineData, routine[1]);
     const [stateProgress, changeProgress] = useFormData(validateRoutineData, routine[1].progress);
 
-    const [updateGoal, resultGoal] = useDbUpdate(`/tasks/${routine[1]}`);
-    const [updateProgress, resultProgress] = useDbUpdate(`/tasks/${routine[1]}/progress`);
-    // const [data, error] = useDbData(`/tasks/${routine[0]}/progress/${formatedDate}`);
-    // console.log(data);
-    // if (data == undefined){
-    //     console.log("undef");
-    //     updateProgress({formatedDate: "0"});
-    // }
-    //"mm-dd-yyyy"
-    //"formatedDate"
-    console.log(stateGoal.values);
-    console.log(stateProgress.values);
+    const [updateGoal, resultGoal] = useDbUpdate(`/tasks/${routine[0]}`);
+    const [updateProgress, resultProgress] = useDbUpdate(`/tasks/${routine[0]}/progress`);
+
     const submit = (evt) => {
         evt.preventDefault();
         updateGoal(stateGoal.values);
