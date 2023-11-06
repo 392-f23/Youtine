@@ -9,6 +9,7 @@ const ProfilePage = () =>{
     }
     return(
         <div className="container1">
+            <h2 className="main-title">Profile</h2>
             <ProfilePhoto/>
             <button className="rounded-button" onClick={()=>{firebaseSignOut()}}>SignOut</button>
         </div>

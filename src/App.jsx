@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -9,7 +10,7 @@ import { useDbData, useAuthState } from './utilities/firebase';
 import BottomNavbar from './components/BottomNavBar';
 import ProfilePage from './components/ProfilePage';
 import SummaryPage from './components/SummaryPage';
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 const App = () => {
   const [data, error] = useDbData("/");
   const [user] = useAuthState();
@@ -22,8 +23,8 @@ const App = () => {
       {/* <LoginPage/> */}
       {user? <BrowserRouter>
         <Routes>
-          <Route path ="/" element={<RoutinePage routines={data.tasks}/>}></Route>
-          <Route path ="/profile" element={<ProfilePage/>}></Route>
+          <Route path ="/" element={<RoutinePage  routines={data.tasks}/>}></Route>
+          <Route path ="/profile" element={<ProfilePage />}></Route>
           <Route path ="/summary" element={<SummaryPage routines={data.tasks}/>}></Route>
         </Routes>
         <BottomNavbar></BottomNavbar>

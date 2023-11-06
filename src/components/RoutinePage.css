@@ -12,6 +12,23 @@
     padding: 10px 0;
 }
 
+.new-routine-button {
+    position: fixed;   /* Fixed position relative to the viewport */
+    bottom: 140px;      /* Distance from the bottom */
+    right: 20px;       /* Distance from the right */
+    width: 50px;       /* Width of the button */
+    height: 50px;      /* Height of the button, should be the same as width for a circle */
+    background-color: #007bff; /* Button color, example is a blue shade */
+    border-radius: 50%; /* Rounded border to make it a circle */
+    color: white;       /* Text color */
+    text-align: center; /* Align text inside the button */
+    line-height: 50px;  /* Center text vertically */
+    font-size: 24px;    /* Font size of the icon/text */
+    z-index: 1000;      /* Ensure it's above other elements */
+    cursor: pointer;    /* Change cursor to pointer on hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Optional: Add shadow for better visibility */
+  }
+
 .content{
     margin-top: 100px;
 }

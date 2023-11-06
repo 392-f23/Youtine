@@ -48,3 +48,7 @@ body, html {
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.page-main {
+  margin-bottom: 50rem;
+}

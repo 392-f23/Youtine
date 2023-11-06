@@ -1,42 +1,108 @@
-/* .routine{
-    background-color: rgb(249, 239, 226);   
-    border-radius: 25px;
-    outline: 1px solid black;
-} */
-div.routine {
+:root {
+    --routine-bg-color: #ffffff;
+    --routine-text-color: #333; /* Much darker for better contrast and readability */
+    --routine-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    --routine-border-radius: 20px;
+    --routine-spacing: 1rem;
+    --routine-font-stack: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    
+    /* Soothing sage green */
+    --routine-primary-color: #b8c0ac; /* Sage green */
+    --routine-secondary-color: #d9dbd5; /* A lighter shade for secondary elements */
+    --routine-accent-color: #f0ede5; /* Soft accent color for the footer, slightly lighter than background */
+}
+
+.routine-card {
+    background-color: var(--routine-bg-color);
+    border-radius: var(--routine-border-radius);
+    box-shadow: var(--routine-shadow);
+    color: var(--routine-text-color);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency to let the main background color show through */
-    color: rgb(21,55,56);
-    padding: 15px 25px;
-    margin: 10px 0;
-    border-radius: 7px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
-    max-width: 400px;
-    margin: 15px auto;
-    width: 80%;
+    font-family: var(--routine-font-stack);
+    margin: 2rem auto;
+    max-width: 90%;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
 }
 
-.routine > div {
-    margin-bottom: 10px;
+.routine-card:hover {
+    transform: scale(1.03);
 }
 
-.routine h5 {
-    font-weight: 300;
-    font-size: 1.2em;
-    margin: 10px 0;
+.routine-card-header {
+    background-color: var(--routine-primary-color);
+    color: white; /* White text for contrast against the header background */
+    padding: var(--routine-spacing);
     text-align: center;
+    border-top-left-radius: var(--routine-border-radius);
+    border-top-right-radius: var(--routine-border-radius);
 }
 
-/* Styling for the routine title and daily goal */
-.routine > div:first-child {
-    font-weight: 500;
-    font-size: 1.5em;
+.routine-card-title {
+    margin: 0;
+    font-size: 1.25rem; /* Slightly larger font size for better visibility */
 }
 
-.routine > div:nth-child(2) {
-    font-weight: 300;
-    font-size: 1.2em;
+.routine-card-body {
+    padding: var(--routine-spacing);
+}
+
+.routine-card-goal {
+    color: var(--routine-text-color); /* Darker text for better visibility */
+    margin-bottom: var(--routine-spacing);
+    font-weight: bold; /* Making it bold for better emphasis */
+}
+
+.routine-card-progress {
+    margin-bottom: var(--routine-spacing);
+}
+
+.ProgressBar {
+    height: 1.5rem;
+    background-color: #e9ecef;
+    border-radius: var(--routine-border-radius);
+}
+
+.progress-bar {
+    background-color: var(--routine-secondary-color);
+    font-weight: bold;
+    transition: width 0.6s ease;
+}
+
+.routine-card-progress-text {
+    font-size: 1rem; /* Larger font size for better readability */
+    text-align: center;
+    color: var(--routine-text-color);
+}
+
+.routine-card-footer {
+    padding: var(--routine-spacing);
+    background-color: var(--routine-accent-color);
+    border-bottom-left-radius: var(--routine-border-radius);
+    border-bottom-right-radius: var(--routine-border-radius);
+}
+
+.routine-card-modify-btn {
+    background-color: var(--routine-primary-color);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.routine-card-modify-btn:hover {
+    background-color: #a0a88f; /* A slightly darker shade of sage green for hover */
+}
+
+@media (max-width: 390px) {
+    .routine-card {
+        margin: var(--routine-spacing);
+    }
+    .routine-card-modify-btn {
+        width: auto;
+    }
 }
