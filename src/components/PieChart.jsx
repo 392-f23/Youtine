@@ -19,14 +19,36 @@ const PieChart = ({ selectedDate }) => {
     const db = getDatabase();
     const tasksRef = ref(db, 'tasks');
     onValue(tasksRef, (snapshot) => {
-      const tasksData = snapshot.val();
+      const tasksDataSnapshot = snapshot.val()
+      const tasksData = tasksDataSnapshot ? Object.values(tasksDataSnapshot) : [];
+      //const tasksData = snapshot.val();
       const newLabels = [];
       const newData = [];
-      const backgroundColors = ['#FF6384', '#36A2EB', '#FFCE56', '#2ECC71', '#9B59B6']; // Add more colors if needed
+      const backgroundColors = [
+        '#FF6384', // Bright Pink
+        '#36A2EB', // Sky Blue
+        '#FFCE56', // Soft Yellow
+        '#4BC0C0', // Turquoise
+        '#9966FF', // Amethyst Purple
+        '#FF9F40', // Tangerine Orange
+        '#66FF66', // Lime Green
+        '#C9CBFF', // Pastel Violet
+        '#FF6666', // Salmon Red
+        '#FFCC66', // Peach Orange
+        '#66CCFF', // Light Blue
+        '#33CC99', // Mint Green
+        '#CC66FF', // Lavender Purple
+        '#FF99CC', // Pink
+        '#99CC99'  // Pastel Green
+      ];
+
 
       let totalPercentage = 0;
       tasksData.forEach((task, index) => {
-        if (task.progress[selectedDate]) {
+        console.log(task)
+        console.log(selectedDate)
+        if (task.progress && task.progress.hasOwnProperty(selectedDate)) {
+          console.log(task.progress[selectedDate]);
           const percentDone = (task.progress[selectedDate] / task.daily_goal) * 100;
           totalPercentage += percentDone;
 
@@ -48,11 +70,21 @@ const PieChart = ({ selectedDate }) => {
       });
     });
   }, [selectedDate]);
+  // console.log(chartData);
 
   return (
     <div>
-      <h2>A Balanced Life is Best, Here is Where Your Progress Is</h2>
-      <Pie data={chartData} />
+      <h2>A Balanced Life is Best, Here is Where You Have Devoted Your Time</h2>
+      <div>
+        {chartData.datasets && chartData.datasets.length > 0 && chartData.datasets[0].data.length > 0 ?
+          <Pie data={chartData} /> :
+          <div>
+            <br></br>
+            <p>You did not work on any routines today</p>
+            <br></br><br></br>
+          </div>
+        }
+      </div>
     </div>
   );
 };

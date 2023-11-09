@@ -1,6 +1,6 @@
 /* BottomNavbar.css */
 .bottom-navbar {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     width: 100%;
     display: flex;

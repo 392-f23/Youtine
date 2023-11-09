@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { useCallback, useEffect, useState } from 'react';
 import { getDatabase, onValue, ref, update } from 'firebase/database';
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
+import {v4 as uuidv4} from 'uuid';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDSqF3QLXoVooEnD4XO9LGVkMFTMFXnebY",
@@ -47,6 +48,19 @@ export const useDbUpdate = (path) => {
   }, [database, path]);
 
   return [updateData, result];
+};
+
+export const useRoutineInsert = (newRoutine) => {
+  const [result, setResult] = useState();
+  const id = uuidv4();
+  const path = `/tasks/${id}`;
+  const insertData = useCallback((value) => {
+    update(ref(database, path), value)
+    .then(() => setResult(makeResult()))
+    .catch((error) => setResult(makeResult(error)))
+  }, [database, path]);
+
+  return [insertData, result];
 };
 
 export const signInWithGoogle = () => {
