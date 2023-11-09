@@ -20,7 +20,6 @@ const App = () => {
   
   return (
     <div className="App">
-      {/* <LoginPage/> */}
       {user? <BrowserRouter>
         <Routes>
           <Route path ="/" element={<RoutinePage  routines={data.tasks}/>}></Route>
