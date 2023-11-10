@@ -21,9 +21,15 @@ const RoutinePage = ({ routines }) => {
         <NewRoutinePage />
       </Modal>
       <div className="content">
-        <RoutineList routines={routines} />
+        {routines ?
+          <RoutineList routines={routines} /> :
+          <div>
+            <h2> No routines yet</h2>
+            <h3>Click the + icon to get started</h3>
+          </div>
+        }
       </div>
-    </div>
+    </div >
   );
 };
 
