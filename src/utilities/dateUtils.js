@@ -13,7 +13,7 @@ export const determineProgress = (task) => {
         // const formattedDate = currentDay.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }); // Format as "mm/dd/yyyy"
         const formattedDate = toFormattedDate(currentDay);
         // Check if the date exists in the task's progress
-        // console.log(task);
+        console.log(task);
         if (task.progress[formattedDate]) {
             // Check if the goal was hit on that day
             if (parseInt(task.progress[formattedDate]) >= parseInt(task.daily_goal)) {

@@ -2,12 +2,13 @@
   text-align: center;
 }
 
-body, html {
+body,
+html {
   height: 100%;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: rgb(251,236,217) !important;
+  background-color: rgb(251, 236, 217) !important;
 }
 
 .App-logo {
@@ -51,4 +52,18 @@ button {
 
 .page-main {
   margin-bottom: 50rem;
+}
+
+.navb {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 0px;
+}
+
+.content{
+  padding-bottom: 60px;
 }

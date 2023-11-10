@@ -9,8 +9,8 @@ const BottomNavbar = () => {
       <NavLink exact to="/" className="nav-item" activeClassName="active">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="60"
-          height="60"
+          width="80"
+          height="80"
           viewBox="0 0 100 100"
         >
           <circle cx="50" cy="50" r="40" fill="#ff6b6b" />
@@ -22,8 +22,8 @@ const BottomNavbar = () => {
       <NavLink to="/profile" className="nav-item" activeClassName="active">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="60"
-          height="60"
+          width="80"
+          height="80"
           viewBox="0 0 100 100"
         >
           <circle cx="50" cy="35" r="20" fill="#007bff" />
@@ -35,8 +35,8 @@ const BottomNavbar = () => {
       <NavLink to="/summary" className="nav-item" activeClassName="active">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="60"
-          height="60"
+          width="80"
+          height="80"
           viewBox="0 0 100 100"
         >
           <circle cx="50" cy="50" r="40" fill="#009688" />

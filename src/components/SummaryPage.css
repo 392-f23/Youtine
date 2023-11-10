@@ -3,3 +3,8 @@
     text-align: center;
     justify-content: center;
 }
+.calendar{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}

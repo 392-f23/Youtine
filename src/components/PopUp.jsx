@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { toFormattedDate } from '../utilities/dateUtils';
 import { useDbData } from '../utilities/firebase';
+
 const validateRoutineData = (key, val) => {
     return '';
 };
