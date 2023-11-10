@@ -3,18 +3,10 @@ import { useFormData } from '../utilities/useFormData';
 import { useDbData, useDbUpdate, useRoutineInsert } from '../utilities/firebase';
 import {v4 as uuidv4} from 'uuid';
 import { toFormattedDate } from '../utilities/dateUtils';
+
 const validateRoutineData = (key, val) => {
     return '';
 };
-
-const InputField = ({ name, text, state, change }) => (
-        <div className="mb-3">
-            <label htmlFor={name} className="form-label">{text}</label>
-            <input className={`form-control ${state.errors && state.errors[name] ? 'is-invalid' : state.values[name] ? 'is-valid' : ''}`} id={name} name={name}
-                defaultValue={state.values?.[name]} onChange={change} />
-            <div className="invalid-feedback">{state.errors?.[name]}</div>
-        </div>
-    );
 
     const TextField = ({ name, text, state, change }) => (
         <div className="mb-3">
@@ -54,22 +46,24 @@ const InputField = ({ name, text, state, change }) => (
 
 export const NewRoutinePage = () => {
     
-    const createRoutineObject = () => {
-        return {"daily_goal": dailyGoal, "progress": {}, "title": name, "unit": units};
-    }
     const [name, changeName] = useState("");
     const [dailyGoal, changeDailyGoal] = useState("0");
     const [units, changeUnits] = useState("");
+    const dates = {};
+    dates[toFormattedDate(new Date())] = "0";
+    const createRoutineObject = () => {
+        return { "daily_goal": dailyGoal.target.value, "progress": dates, "title": name.target.value, "unit": units.target.value };
+    }
 
-    const [state, change] = useFormData(validateRoutineData, {});
+
     const id = uuidv4().toString();
-    // console.log(id);
     const [addRoutine, result] = useDbUpdate(`/tasks/${id}`);
     const submit = (evt) => {
-        // const taskObject = {"daily_goal": dailyGoal, "progress": {}, "title": name, "unit": units};
-        // change(createRoutineObject());
         evt.preventDefault();
-        addRoutine(createRoutineObject());
+        const routineObject = createRoutineObject();
+        console.log("RoutineObject: ");
+        console.log(routineObject.title);
+        addRoutine(routineObject);
     };
 
     return (
