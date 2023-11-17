@@ -59,6 +59,33 @@ const BottomNavbar = () => {
         </svg>
         Summary
       </NavLink>
+      <NavLink to="/quote" className="nav-item" activeClassName="active">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="80"
+          height="80"
+          viewBox="0 0 100 100"
+        >
+          <circle cx="50" cy="50" r="40" fill="#009688" />
+          <line
+            x1="30"
+            y1="50"
+            x2="70"
+            y2="50"
+            stroke="#fff"
+            stroke-width="6"
+          />
+          <line
+            x1="50"
+            y1="30"
+            x2="50"
+            y2="70"
+            stroke="#fff"
+            stroke-width="6"
+          />
+        </svg>
+        Quotes
+      </NavLink>
     </div>
   );
 };

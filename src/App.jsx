@@ -10,7 +10,7 @@ import { useDbData, useAuthState } from "./utilities/firebase";
 import BottomNavbar from "./components/BottomNavBar";
 import ProfilePage from "./components/ProfilePage";
 import SummaryPage from "./components/SummaryPage";
-
+import QuoteComponent from "./components/QuotePage-chatgpt";
 const App = () => {
   const [data, error] = useDbData("/");
   const [user] = useAuthState();
@@ -34,6 +34,10 @@ const App = () => {
                 path="/summary"
                 element={<SummaryPage routines={data.tasks} />}
               ></Route>
+              <Route 
+                path="/quote"
+                element={<QuoteComponent/>}>
+              </Route>
             </Routes>
           </div>
 
